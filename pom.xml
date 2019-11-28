@@ -57,6 +57,13 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+  				<groupId>org.mule.tools.maven</groupId>
+  				<artifactId>mule-maven-plugin</artifactId>
+  				<version>2.2.1</version>
+  				<!-- <extensions>true</extensions>-->
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -190,7 +197,14 @@
 			<id>MuleRepository</id>
 			<name>nexus-ee</name>
 			<url>http://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
-			
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+
 			
 		</repository>
 		<repository>
