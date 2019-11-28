@@ -16,7 +16,7 @@
 		<mule.tools.version>1.7</mule.tools.version>
 		<!-- more properties here -->
 		<derby.version>10.12.1.1</derby.version>
-		<activemq.version>5.15.0</activemq.version>
+		<activemq.version>5.15.11</activemq.version>
 	</properties>
 
 	<build>
