@@ -199,10 +199,8 @@
 			<layout>default</layout>
 		</repository>
 		<repository>
-			<id>MuleRepository</id><!-- This id should be same as server id in setting.xml -->
+			<id>MuleRepository</id>
 			<name>nexus-ee</name>
-			 <username>whishworks.nexus</username>
-                         <password>cH0c0t0R74</password>
 			<url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
 			<layout>default</layout>
 			<releases>
