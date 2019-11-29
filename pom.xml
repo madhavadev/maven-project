@@ -3,10 +3,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mulesoft.training</groupId>
-	<artifactId>mysql-maven</artifactId>
+	<artifactId>maven-project</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule</packaging>
-	<name>Mule mysql-maven Application</name>
+	<name>Mule maven-project Application</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,7 +14,9 @@
 
 		<mule.version>3.9.2</mule.version>
 		<mule.tools.version>1.7</mule.tools.version>
-		<activemq.version>5.15.9</activemq.version>
+		<!-- more properties here -->
+		<derby.version>10.12.1.1</derby.version>
+		<activemq.version>5.15.0</activemq.version>
 	</properties>
 
 	<build>
@@ -113,24 +115,18 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.11</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-all</artifactId>
-			<version>${activemq.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mule.modules/mule-module-builders -->
-		<dependency>
 			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-module-builders</artifactId>
-			<version>3.9.2</version>
+			<artifactId>mule-module-xml</artifactId>
+			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- non-mule dependencies -->
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyLocale_zh_TW</artifactId>
+			<version>${derby.version}</version>
 
-		<!-- <dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> <version>1.5.0</version> </dependency> -->
+		</dependency>
 		<!-- for testing -->
 		<dependency>
 			<groupId>org.mule.tests</groupId>
@@ -140,13 +136,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-module-spring-config</artifactId>
+			<artifactId>mule-module-http</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-module-http</artifactId>
+			<artifactId>mule-module-spring-config</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -161,6 +157,25 @@
 			<artifactId>mule-transport-jms</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-client -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+			<version>${activemq.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-broker</artifactId>
+			<version>${activemq.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-kahadb-store -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-kahadb-store</artifactId>
+			<version>${activemq.version}</version>
+
 		</dependency>
 		<dependency>
 			<groupId>org.mule.modules</groupId>
@@ -185,7 +200,7 @@
 		</repository>
 		<repository>
 			<id>MuleRepository</id><!-- This id should be same as server id in setting.xml -->
-			<name>nexus-ee</name>
+			<name>nexus-ee</name> 
 			<url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
 			<layout>default</layout>
 			<releases>
@@ -195,7 +210,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-
+		
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
